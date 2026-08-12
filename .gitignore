@@ -1,0 +1,28 @@
+
+---
+
+## 📄 Simple .gitignore
+
+Create this file in your project root:
+
+```gitignore
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual Environment
+venv/
+env/
+.env
+
+# Data files (raw data - keep it local)
+*.csv
+*.xlsx
+*.db
+
+# IDE
+.vscode/
+.idea/
+.DS_Store

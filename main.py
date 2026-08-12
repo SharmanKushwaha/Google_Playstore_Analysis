@@ -1,0 +1,16 @@
+import numpy as np
+import pandas as pd
+print("=" * 60)
+print("GOOGLE PLAYSTORE ANALYSIS")
+print("=" * 60)
+df = pd.read_csv('data/googleplaystore.csv')
+print("Dataset loaded successfully!")
+# print(df.head())
+# print(df.info())
+# print(df['Installs'].unique())
+# print(df['Price'].unique())
+# print(df['Size'].unique())
+# print(df['Type'].unique())
+# s1 = pd.Series(df['Size'].unique())
+# print(s1)
+print(df['Size'].unique().tolist())

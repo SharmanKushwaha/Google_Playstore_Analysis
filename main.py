@@ -95,5 +95,48 @@ print(f"Duplicate rows: {duplicate_count}")
 df = df.drop_duplicates(subset=['App'], keep='first')
 rows_after = len(df)
 removed = rows_before - rows_after
-print(f"Rows after: {rows_after}")
-print(f"Removed: {removed} rows")
+# print(f"Rows after: {rows_after}")
+# print(f"Removed: {removed} rows")
+print("\n" + "=" * 60)
+print("ANALYSIS & INSIGHTS")
+print("=" * 60)
+# Q1: Which categories have the most apps?
+top_categories = df['Category'].value_counts().head(10)
+print("\n1. Top 10 categories by app count: ")
+print(top_categories)
+# Q2: Which category have the most installs?
+category_installs = df.groupby('Category')['Installs'].sum().sort_values(ascending=False).head(10)
+print("\n2. Top 10 categories by total installs: ")
+print(category_installs)
+# Q3: Are  paid apps rated higher than the free apps?
+Avg_rating = df.groupby('Type')['Rating'].mean()
+print("\n3. Comparison of rating between free and paid apps: ")
+print(Avg_rating)
+# Q4: What is the avg price of paid apps?
+paid_apps = df[df['Type'] == 'Paid']
+avg_price = paid_apps['Price'].mean()
+print(avg_price)
+# Q5: Which apps have the highest number of reviews?
+top_reviwed_apps = df.nlargest(10, 'Reviews')[['App', 'Reviews', 'Category']]
+print("\n5. Top 10 apps with the most reviews: ")
+print(top_reviwed_apps)
+# Q6: Which apps have the highest number of installs?
+top_installed_apps = df.nlargest(10, 'Installs')[['App', 'Installs', 'Category']]
+print("\n6. Top 10 apps with the most installs: ")
+print(top_installed_apps)
+# Q7: Which category has the highest average rating?
+avg_rating_by_category = df.groupby('Category')['Rating'].mean().sort_values(ascending=False).head()
+print("\n7. Top 5 categories by average rating:")
+print(avg_rating_by_category)
+# Q8: Which category has the highest average installs?
+avg_installs_by_category = df.groupby('Category')['Installs'].mean().sort_values(ascending=False).head()
+print("\n8. Top 5 categories by average installs:")
+for category, avg_installs in avg_installs_by_category.items():
+    print(f"{category}: {avg_installs:,.0f}")
+app_count_by_type = df['Type'].value_counts()
+print("\n9. Free vs Paid apps:")
+print(app_count_by_type)
+# Q10: What is the average rating of free vs paid apps?
+avg_rating_free_paid = df.groupby('Type')['Rating'].mean()
+print("\n10. Average rating of free vs paid apps:")
+print(avg_rating_free_paid)

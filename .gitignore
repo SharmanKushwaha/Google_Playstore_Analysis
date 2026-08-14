@@ -1,28 +1,78 @@
 
 ---
 
-## 📄 Simple .gitignore
+## 🧹 Data Cleaning
 
-Create this file in your project root:
+Real-world data is messy. Here's what was cleaned:
 
-```gitignore
-# Python
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
+| Column | Issues | Fix Applied |
+|:---|:---|:---|
+| `Installs` | `+`, `,` symbols | Removed and converted to integer |
+| `Price` | `$` symbol | Removed and converted to float |
+| `Size` | Mixed units (`M`, `k`), `Varies with device` | Converted all to MB (float) |
+| `Reviews` | Stored as string | Converted to integer |
+| `Rating` | Missing values | Filled with `0` |
+| `Last Updated` | String format | Converted to datetime |
+| `Type` | 1 missing value | Filled with `Free` |
+| `Content Rating` | No missing values | Kept as is |
+| `Duplicates` | 1,181 duplicate rows | Removed (kept first occurrence) |
 
-# Virtual Environment
-venv/
-env/
-.env
+**Final Cleaned Dataset:** `9,659` unique apps.
 
-# Data files (raw data - keep it local)
-*.csv
-*.xlsx
-*.db
+---
 
-# IDE
-.vscode/
-.idea/
-.DS_Store
+## 📈 Key Insights
+
+### 1️⃣ App Distribution by Category
+- **FAMILY** has the most apps (~1,500), followed by **GAME** and **TOOLS**.
+- 💡 *Insight:* The Playstore is dominated by family and game apps.
+
+### 2️⃣ Most Installed Categories
+- **GAME** leads in total installs, followed by **FAMILY** and **TOOLS**.
+- 💡 *Insight:* Games and utility apps drive the highest user engagement.
+
+### 3️⃣ Paid vs Free Apps
+- **92%** of apps are free, only **8%** are paid.
+- 💡 *Insight:* The Playstore is a free-to-use ecosystem with very few paid apps.
+
+### 4️⃣ Ratings: Free vs Paid
+- Free apps have a slightly higher average rating than paid apps.
+- 💡 *Insight:* More users + more reviews = more stable ratings.
+
+### 5️⃣ Most Popular Categories (by Avg Installs)
+- **COMMUNICATION** apps have the highest average installs (~35M).
+- **VIDEO_PLAYERS** and **SOCIAL** apps follow closely.
+- 💡 *Insight:* Apps that connect people (communication/social) dominate in popularity.
+
+### 6️⃣ Highest Rated Category
+- **ART_AND_DESIGN** has the highest average rating.
+- 💡 *Insight:* Niche, creative apps tend to receive higher user satisfaction.
+
+### 7️⃣ Top Apps
+| Metric | Top App |
+|:---|:---|
+| Most Installs | Facebook |
+| Most Reviews | Facebook |
+| Highest Rating | Various (mostly 5-star apps) |
+
+---
+
+## 🚀 How to Run This Project
+
+### Prerequisites
+- Python 3.8+
+- Git (optional)
+
+### Steps
+```bash
+# 1. Clone the repository
+git clone https://github.com/SharmanKushwaha/Google_Playstore_Analysis.git
+
+# 2. Navigate to project folder
+cd Google_Playstore_Analysis
+
+# 3. Install dependencies
+pip install -r requirements.txt
+
+# 4. Run the analysis
+python main.py

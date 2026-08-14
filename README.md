@@ -33,3 +33,12 @@ This project performs a comprehensive **Exploratory Data Analysis (EDA)** on the
 ---
 
 ## 📁 Project Structure
+Google_Playstore_Analysis/
+│
+├── data/
+│   └── googleplaystore.csv        # Raw dataset
+│
+├── main.py                         # Full pipeline (cleaning + analysis)
+├── README.md                       # Project documentation
+├── requirements.txt                # Dependencies
+└── .gitignore                      # Ignored files

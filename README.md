@@ -42,8 +42,9 @@ Google_Playstore_Analysis/
 ├── README.md                       # Project documentation
 ├── requirements.txt                # Dependencies
 └── .gitignore                      # Ignored files
-🚀 How to Run
+ ## 🚀 How to Run
 
+```bash
 git clone https://github.com/SharmanKushwaha/Google_Playstore_Analysis.git
 cd Google_Playstore_Analysis
 pip install -r requirements.txt
